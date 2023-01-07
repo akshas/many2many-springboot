@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jpa:h2:mem:db
+    username: sa
+    password:
+    driver-class-name:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
