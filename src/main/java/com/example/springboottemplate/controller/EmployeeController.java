@@ -17,7 +17,7 @@ public class EmployeeController {
     public EmployeeController(EmployeeService employeeService) {
        this.employeeService = employeeService;
     }
-    @GetMapping("/")
+    @GetMapping("")
     public List<Employee> index() {
         return employeeService.findAll();
     }
@@ -30,5 +30,10 @@ public class EmployeeController {
     public ResponseEntity<Employee> saveEmployee(Employee employee) {
         employeeService.saveEmployee(employee);
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{emplId}/project/{projectId}")
+    public Employee assignProject(@PathVariable long emplId, @PathVariable long projectId) {
+        return employeeService.assignProjectToEmployee(emplId, projectId);
     }
 }

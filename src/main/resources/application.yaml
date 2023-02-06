@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:db
+    url: jdbc:h2:mem:db;INIT=RUNSCRIPT FROM 'classpath:insert.sql'
     username: sa
     password:
     driver-class-name:
@@ -8,3 +8,4 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true

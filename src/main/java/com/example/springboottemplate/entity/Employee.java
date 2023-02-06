@@ -1,5 +1,6 @@
 package com.example.springboottemplate.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +23,6 @@ public class Employee {
     private String empName;
 
     @ManyToMany
-    @JoinTable(name="emploee_project", joinColumns = @JoinColumn(name="employee_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
+    @JoinTable(name="employee_project", joinColumns = @JoinColumn(name="employee_id"), inverseJoinColumns = @JoinColumn(name = "project_id"))
     private Set<Project> projects = new HashSet<>();
 }
