@@ -1,5 +1,6 @@
 package com.example.springboottemplate.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class Project {
     @Column(name="project_name")
     private String projectName;
 
-    @ManyToMany(mappedBy = "employees")
+    @JsonIgnore
+    @ManyToMany(mappedBy = "projects")
     private Set<Employee> employees = new HashSet<>();
 }
